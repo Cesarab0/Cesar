@@ -1,13 +1,13 @@
-public class Aeromodelo {
+public class Hangar {
   
     private int id;
-    private String marca;
-    private String modelo;
+    private String local;
+
     
-    public Aeromodelo(int id, String marca, String modelo) {
+    public Hangar(int id, String local, int) {
   
         this.id = id;
-        this.marca = marca;
+        this.local = local;
         this.modelo = modelo;
     }
 
@@ -27,14 +27,14 @@ public class Aeromodelo {
         this.modelo = modelo;
     }
 
-    public String getMarca() {
-        return this.marca;
+    public String getLocal() {
+        return this.local;
     }
     
 
 
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public void setLocal(String local) {
+        this.local = local;
     }
 
 
