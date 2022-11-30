@@ -1,6 +1,9 @@
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
+import java.sql.PreparedStatement;
 
 public abstract class DAO {
    
@@ -19,6 +22,7 @@ public abstract class DAO {
             throw new RuntimeException(e);
         }
     }
+
 
     public static void closeConnection() {
         try {

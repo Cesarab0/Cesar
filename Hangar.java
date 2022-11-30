@@ -2,13 +2,15 @@ public class Hangar {
   
     private int id;
     private String local;
+    Aviao aviao;
+    private int id_aviao;
 
     
-    public Hangar(int id, String local, int) {
+    public Hangar(int id, String local, int id_aviao) {
   
         this.id = id;
         this.local = local;
-        this.modelo = modelo;
+        this.id_aviao = aviao.getId();
     }
 
     public double getId() {
@@ -19,13 +21,6 @@ public class Hangar {
         this.id = id;
     }
     
-    public String getModelo() {
-        return this.modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
 
     public String getLocal() {
         return this.local;
@@ -37,5 +32,14 @@ public class Hangar {
         this.local = local;
     }
 
+
+    
+    @Override
+    public String toString() {
+        return 
+            " Id =" + getId() + "\n" +
+            " Local =" + getLocal() + "\n" + 
+            " ID_Avião =" + aviao.getId();
+    }
 
 }

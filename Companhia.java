@@ -1,3 +1,8 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Companhia {
     
 
@@ -5,12 +10,28 @@ public class Companhia {
     private String nome;
     private String cnpj;
     
-    public Companhia(int id, String nome, String cnpj) {
+ 
+    
+    public Companhia(String nome, String cnpj) throws SQLException {
   
-        this.id = id;
         this.nome = nome;
         this.cnpj = cnpj;
+
+        
+        try{
+            Connection conexao = DAO.createConnection();;
+            PreparedStatement stmt = conexao.prepareStatement(
+                "INSERT INTO COMPANHIA (NOME, CNPJ) VALUES (?, ?);"
+             );
+             stmt.setString(1, this.getNome());
+             stmt.setString(2, this.getCnpj());
+             stmt.execute();
+             DAO.closeConnection();
+        } catch(SQLException e){
+            throw new RuntimeException(e);
+        }
     }
+    
 
     public int getId() {
         return this.id;
