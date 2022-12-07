@@ -14,6 +14,7 @@ public class Companhia {
     
     public Companhia(String nome, String cnpj) throws SQLException {
   
+   
         this.nome = nome;
         this.cnpj = cnpj;
 

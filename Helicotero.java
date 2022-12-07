@@ -3,36 +3,35 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Aviao {
+public class Helicotero {
     
 
-    private int id;
+
     private String modelo;
     private String marca;
-    private String prefixo;
+    private String cor;
     private int capacidade;
-    Companhia companhia;
-    private int id_companhia;
 
-    public Aviao(String modelo,String marca, int capacidade,String prefixo, int id_companhia) throws SQLException {
+
+
+    public Helicotero(String modelo,String marca, int capacidade,String cor) throws SQLException {
   
   
         this.modelo = modelo;
         this.marca = marca;
         this.capacidade = capacidade;
-        this.prefixo = prefixo;
-        this.id_companhia = id_companhia;
+        this.cor = cor;
+       
 
         try{
             Connection conexao = DAO.createConnection();;
             PreparedStatement stmt = conexao.prepareStatement(
-                "INSERT INTO AVIAO (MARCA, MODELO, CAPACIDADE, PREFIXO, ID_COMPANHIA) VALUES (?, ?, ?, ?, ?);"
+                "INSERT INTO helicoptero (MARCA, MODELO, CAPACIDADE, COR) VALUES (?, ?, ?, ?);"
              );
              stmt.setString(1, this.getMarca());
              stmt.setString(2, this.getModelo());
              stmt.setInt(3, this.getCapacidade());
-             stmt.setString(4, this.getPrefixo());
-             stmt.setInt(5, this.getId_companhia());
+             stmt.setString(4, this.getCor());
              stmt.execute();
              DAO.closeConnection();
         } catch(SQLException e){
@@ -42,13 +41,7 @@ public class Aviao {
 
     }
 
-    public int getId() {
-        return this.id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+ 
 
     public String getMarca() {
         return this.marca;
@@ -66,12 +59,12 @@ public class Aviao {
         this.modelo = modelo;
     }
 
-    public String getPrefixo() {
-        return this.prefixo;
+    public String getCor() {
+        return this.cor;
     }
 
-    public void setPrefixo(String prefixo) {
-        this.prefixo = prefixo;
+    public void setPrefixo(String cor) {
+        this.cor = cor;
     }
     
 
@@ -84,23 +77,16 @@ public class Aviao {
     }
 
 
-    public int getId_companhia() {
-        return this.id_companhia;
-    }
-
-    public void setId_companhia(int id_companhia) {
-        this.id_companhia = id_companhia;
-    }
+  
 
     @Override
     public String toString() {
         return 
-            " Id =" + getId() + "\n" +
-            " Modelo =" + getPrefixo() + "\n" + 
-            " Marca =" + getPrefixo() + "\n" + 
-            " Prefixo =" + getPrefixo() + "\n" + 
-            " Capacidade =" + getCapacidade()+ "\n" +
-            " ID Companhia =" + companhia.getId()+ "\n";
+            " Marca =" + getMarca() + "\n" + 
+            " Capacidade =" + getCapacidade() + "\n" + 
+            " Cor =" + getCor() + "\n" + 
+            " Capacidade =" + getCapacidade();
+          
     }
 
 
